@@ -5,12 +5,22 @@ import { Ionicons } from '@expo/vector-icons';
 
 type Params = {
     title: string;
-    image: ImageSourcePropType;
     useVisible: [boolean, CallableFunction];
+    wins: boolean
 };
 
 export default function Message(params: Params) {
     const [visible, setVisible] = params.useVisible;
+
+    if(!visible) return<></>
+    const image = () => {
+        console.log(params.wins)
+        if(params.wins){
+            return require("../../../assets/joker_wins.png")
+        }
+        
+        return require("../../../assets/joker_challenge.png")
+    }
 
     return (
         <Container>
@@ -19,7 +29,7 @@ export default function Message(params: Params) {
                     <Ionicons name="md-close-circle-outline" size={30} color="black" />
                 </CloseView>
                 <MessageBox>
-                    <ImageCard source={params.image} />
+                    <ImageCard source={image()} />
                     <TextCard>{params.title}</TextCard>
                 </MessageBox>
             </Content>

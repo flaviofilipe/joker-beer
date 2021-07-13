@@ -22,12 +22,16 @@ export const Content = styled.View`
 export const TextCard = styled.Text`
  font-size: 16px;
  font-weight: bold;
+ text-align: center;
 `;
 
 export const ImageCard = styled.Image`
- width: 100px;
- height: 100px;
+ width: 150px;
+ height: 150px;
+ resize-mode: contain;
 `;
+
+// stretch
 
 export const CloseView = styled.TouchableOpacity`
  align-self: flex-end;
@@ -38,4 +42,6 @@ export const MessageBox = styled.View`
  justify-content: center;
  align-items: center;
  flex: 1;
+ margin-bottom: 20px;
+ padding: 10px;
 `;
